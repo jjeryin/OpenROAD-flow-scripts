@@ -35,7 +35,7 @@ But the tool will run forever after inputting the command below in our local mac
 ```
 python3.9 distributed.py --design ibex --platform asap7 --config ../designs/asap7/ibex/autotuner.json tune
 ```
-We have to set up on the cloud tools, and the AutoTuner works on the cloud.
+We have to switch to the cloud server, and the AutoTuner works on the cloud.
 
 **2. Still need human involvement:** After the flow finished, we need to use `repair_timing -setup` and `repair_timing -hold` to fix the timing issue.
 
