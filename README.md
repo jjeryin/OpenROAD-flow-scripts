@@ -3,7 +3,7 @@
 [![Build Status](https://jenkins.openroad.tools/buildStatus/icon?job=OpenROAD-flow-scripts-Public%2Fpublic_tests_all%2Fmaster)](https://jenkins.openroad.tools/view/Public/job/OpenROAD-flow-scripts-Public/job/public_tests_all/job/master/)
 [![Docs](https://readthedocs.org/projects/openroad-flow-scripts/badge/?version=latest)](https://openroad-flow-scripts.readthedocs.io/en/latest/?badge=latest)
 
-OpenROAD flow scripts (ORFS) is a tool set for achieving no-human-involved RTL-to-GDSII physical design. Designers can use the tool to compile certain PDK to explore the potential design space of the physical layout regarding power, performance, and area (PPA) without fabrication. \cite{ajayi2019openroad, ajayi2019toward} The ORFS can achieve some sort of optimization automation by AutoTuner, however, it is still in development and needs to be added more comprehensive parameters not only for achieving real full automation but also for user-friendly.
+OpenROAD flow scripts (ORFS) is a tool set for achieving no-human-involved RTL-to-GDSII physical design. Designers can use the tool to compile certain PDK to explore the potential design space of the physical layout regarding power, performance, and area (PPA) without fabrication. The ORFS can achieve some sort of optimization automation by AutoTuner, however, it is still in development and needs to be added more comprehensive parameters not only for achieving real full automation but also for user-friendly.
 
 
 ## Improvement for the OpenROAD feature
