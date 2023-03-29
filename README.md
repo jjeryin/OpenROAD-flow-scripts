@@ -7,12 +7,10 @@ OpenROAD Flow is a full RTL-to-GDS flow built entirely on open-source tools.
 The project aims for automated, no-human-in-the-loop digital circuit design
 with 24-hour turnaround time.
 
-## Using the Flow
+## Improvement
 
-- See the OpenROAD [documentation here](https://openroad.readthedocs.io/en/latest/).
-- How to [start using OpenROAD flow here](https://openroad-flow-scripts.readthedocs.io/en/latest/user/GettingStarted.html).
-- Our [user guide here](https://openroad-flow-scripts.readthedocs.io/en/latest/user/UserGuide.html).
-- Our [Flow Tutorial here](https://openroad-flow-scripts.readthedocs.io/en/latest/tutorials/FlowTutorial.html).
+We 
+
 
 ## Citing this Work
 
