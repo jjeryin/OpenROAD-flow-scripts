@@ -10,7 +10,18 @@ OpenROAD flow scripts (ORFS) is a tool set for achieving no-human-involved RTL-t
 
 We followed the OpenROAD documentation to successfully build and run the ORFS in our local server. For manual tuning, we tried to modify the clk\_period and clk\_io\_ptc in SDC file to optimize timing while modifying the core utilization and aspect ratio to optimize area. For using AutoTuner, we installed the required Python3.9 packages and tried 20 trails (default is 10) based on our manually tuned parameter, which is for reducing optimization time, and then we added “fast\_route.tcl” file and modified “config.mk” file under the design directory to run the flow. Additionally, we did post-layout timing fixing to ensure 0 wns.
 
-***AutoTuner improvement:*** Based on our observation during manual tuning the parameters, the lower the clk\_io\_ptc value will help with gaining more clock frequency. This is becasue it is used to calculate the input-output delays and generate the updated constraint or SDC for each stage of the flow. The AutoTuner should also be able to provide the optimal value of clk\_io\_ptc. The modification should be very straightforward: adding and modifying arguments in the `distributed.py`. The modified `distributed.py` []()
+***AutoTuner improvement:*** Based on our observation during manual tuning the parameters, the lower the clk\_io\_ptc value will help with gaining more clock frequency. This is becasue it is used to calculate the input-output delays and generate the updated constraint or SDC for each stage of the flow. The AutoTuner should also be able to provide the optimal value of clk\_io\_ptc. The modification should be very straightforward: adding and modifying arguments in the `distributed.py`. The modified `distributed.py` can be found [here](). Basically, we added clk\_io\_ptc arguments in the script accordingly. The AutoTuner will produce a johnson file as shown below:
+![image](https://user-images.githubusercontent.com/114622772/228409378-3055c8db-f931-437d-9ab6-83ac2ccb7130.png)
+
+We can see `clk_io_ptc` was added and AutoTuner can tune the parameters.
+
+Then we can modify the corresponding `config.mk` and `constaint.sdc` under the `design/asap7/ibex`, as shown below:
+![image](https://user-images.githubusercontent.com/114622772/228409692-ec472062-0010-4b88-98a4-d23f11b613d7.png)
+
+We finally can get the gdsii as shown below
+![image](https://user-images.githubusercontent.com/114622772/228410160-832d5ded-aadf-4ebd-b937-ad276bcfc12f.png)
+
+with a fmax = 744.15MHz
 
 
 ## Problems and Challenges
@@ -26,8 +37,23 @@ python3.9 distributed.py --design ibex --platform asap7 --config ../designs/asap
 ```
 We have to set up on the cloud tools, and the AutoTuner works on the cloud.
 
+**2. Still need human involvement:** After the flow finished, we need to use `repair_timing -setup` and `repair_timing -hold` to fix the timing issue.
+
+## Future works
+We still need to think about a good algorithm to find the best `clk_io_ptc`. Additionally, predicting a good start-tuning value needs to be considered based on different designs. This will help with reducing the time of using AutoTuner to optimize the design. Because the time of contest is very limited, we need to get familiar with the tool, run the flow first, and understand the Python scripts, we would plan to do the additional optimization if we have more time.
+
+## Authors
+
+**Jerry Yin**  University of Virginia, ECE
+
+**Yimin Gao**  University of Virginia, ECE
+
+**Bhupendra S. Reniwal**  University of Virginia, ECE
+
+**Mircea R. Stan**  University of Virginia, ECE
+
+
 ## References
-[here](http://people.ece.umn.edu/users/sachin/conf/gomactech19.pdf) (PDF).
 
 ```
 @inproceedings{ajayi2019toward,
