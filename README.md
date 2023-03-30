@@ -6,7 +6,7 @@
 OpenROAD flow scripts (ORFS) is a tool set for achieving no-human-involved RTL-to-GDSII physical design. Designers can use the tool to compile certain PDK to explore the potential design space of the physical layout regarding power, performance, and area (PPA) without fabrication. The ORFS can achieve some sort of optimization automation by AutoTuner, however, it is still in development and needs to be added more comprehensive parameters not only for achieving real full automation but also for user-friendly.
 
 
-## Improvement for the OpenROAD feature
+## Improvement for the OpenROAD Auto Tuner feature
 
 We followed the OpenROAD documentation to successfully build and run the ORFS in our local server. For manual tuning, we tried to modify the clk\_period and clk\_io\_ptc in SDC file to optimize timing while modifying the core utilization and aspect ratio to optimize area. For using AutoTuner, we installed the required Python3.9 packages and tried 20 trails (default is 10) based on our manually tuned parameter, which is for reducing optimization time, and then we added “fast\_route.tcl” file and modified “config.mk” file under the design directory to run the flow. Additionally, we did post-layout timing fixing to ensure 0 wns.
 
